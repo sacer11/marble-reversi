@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reversi Pocket Prototype</title>
+    <link rel="stylesheet" href="styles.css?v=20260529-24" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="handheld" aria-label="Reversi Pocket Prototype">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Pocket Reversi</p>
+            <h1>Reversi Clash</h1>
+          </div>
+          <button id="soundToggle" class="icon-button" type="button" aria-label="Toggle sound" title="Sound">
+            <span id="soundIcon">🔊</span>
+          </button>
+        </header>
+
+        <section id="setup" class="setup">
+          <div class="screen-title">
+            <span class="blink"></span>
+            <strong>New Game</strong>
+          </div>
+
+          <label>
+            Player Name
+            <input id="playerName" maxlength="6" value="TOM" autocomplete="off" />
+          </label>
+
+          <div class="field">
+            <span>Mode</span>
+            <div class="segmented" role="group" aria-label="Mode">
+              <button class="active" type="button" data-mode="ai">Vs CPU</button>
+              <button type="button" data-mode="human">2 Players</button>
+            </div>
+          </div>
+
+          <label id="difficultyWrap">
+            CPU Opponent
+            <select id="difficulty">
+              <option value="0">Rookie</option>
+              <option value="1" selected>Tactician</option>
+              <option value="2">Pro</option>
+              <option value="3">Master</option>
+            </select>
+          </label>
+
+          <label>
+            Time Limit
+            <select id="timerSelect">
+              <option value="0" selected>No Limit</option>
+              <option value="300">5 Minutes</option>
+              <option value="600">10 Minutes</option>
+              <option value="1200">20 Minutes</option>
+            </select>
+          </label>
+
+          <label>
+            Background
+            <select id="themeSelect">
+              <option value="green" selected>Green</option>
+              <option value="purple">Purple</option>
+              <option value="blue">Blue</option>
+              <option value="sand">Sand</option>
+              <option value="red">Red</option>
+            </select>
+          </label>
+
+          <button id="startBtn" class="primary" type="button">Start</button>
+          <button id="onlineBtn" class="secondary" type="button">Online Arena</button>
+        </section>
+
+        <section id="online" class="online hidden" aria-live="polite">
+          <div class="screen-title">
+            <span class="blink"></span>
+            <strong>Online Arena</strong>
+          </div>
+
+          <div class="profile-card">
+            <div>
+              <span class="rank-label">Your Rank</span>
+              <strong>#12 Silver League</strong>
+            </div>
+            <b>1840</b>
+          </div>
+
+          <div class="match-grid">
+            <button id="randomMatchBtn" class="primary" type="button">Random Opponent</button>
+            <button id="friendMatchBtn" class="secondary" type="button">Invite Friend</button>
+          </div>
+
+          <div id="matchmaking" class="matchmaking hidden">
+            <div class="scan-ring"></div>
+            <strong>Searching...</strong>
+            <span id="matchStatus">Matching skill level</span>
+          </div>
+
+          <div id="inviteCard" class="invite-card hidden">
+            <span>Invite Code</span>
+            <strong id="inviteCode">RV26-000</strong>
+            <small>Share this code with a friend.</small>
+          </div>
+
+          <section class="ranking">
+            <div class="ranking-head">
+              <strong>Ranking</strong>
+              <span>Season 01</span>
+            </div>
+            <ol>
+              <li><span>NOVA</span><b>2410</b></li>
+              <li><span>KAITO</span><b>2235</b></li>
+              <li><span>MIRA</span><b>2072</b></li>
+              <li class="you"><span id="rankPlayer">TOM</span><b>1840</b></li>
+              <li><span>JUNO</span><b>1795</b></li>
+            </ol>
+          </section>
+
+          <button id="onlineBackBtn" class="ghost" type="button">Back</button>
+        </section>
+
+        <section id="game" class="game hidden" aria-live="polite">
+          <div class="scoreboard">
+            <div class="score active-player" id="scoreBlack">
+              <span class="disc mini black"></span>
+              <strong id="blackName">TOM</strong>
+              <b id="blackScore">2</b>
+              <small id="blackClock">--:--</small>
+            </div>
+            <div class="score" id="scoreWhite">
+              <span class="disc mini white"></span>
+              <strong id="whiteName">CPU</strong>
+              <b id="whiteScore">2</b>
+              <small id="whiteClock">--:--</small>
+            </div>
+          </div>
+
+          <div id="status" class="status">Black to move.</div>
+          <div class="roundbar">
+            <span>Round</span>
+            <strong id="roundCount">1</strong>
+          </div>
+          <div id="board" class="board" role="grid" aria-label="Reversi board"></div>
+
+          <div class="controls">
+            <button id="passBtn" type="button">Pass</button>
+            <button id="newGameBtn" type="button">New</button>
+            <button id="menuBtn" type="button">Menu</button>
+          </div>
+
+          <div id="thinking" class="thinking hidden">
+            <span></span><span></span><span></span>
+            CPU thinking
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="game.js?v=20260529-24"></script>
+  </body>
+</html>
