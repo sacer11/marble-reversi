@@ -43,8 +43,8 @@ function applyTheme(theme = themeSelect.value) {
 function chooseMarblePair() {
   const dark = Math.floor(Math.random() * marbleCount);
   const light = Math.floor(Math.random() * marbleCount);
-  document.documentElement.style.setProperty("--marble-dark-image", `url("assets/pieces/marbles/dark-${dark}.png")`);
-  document.documentElement.style.setProperty("--marble-light-image", `url("assets/pieces/marbles/light-${light}.png")`);
+  document.documentElement.style.setProperty("--marble-dark-image", `url("assets/pieces/marbles/dark-${dark}.png?v=20260529-25")`);
+  document.documentElement.style.setProperty("--marble-light-image", `url("assets/pieces/marbles/light-${light}.png?v=20260529-25")`);
 }
 
 function initBoard() {

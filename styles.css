@@ -18,8 +18,8 @@
   --piece-dark-color: #d9fff4;
   --piece-light-color: #10211c;
   --piece-icon-opacity: 0.92;
-  --marble-dark-image: url("assets/pieces/marbles/dark-0.png");
-  --marble-light-image: url("assets/pieces/marbles/light-0.png");
+  --marble-dark-image: url("assets/pieces/marbles/dark-0.png?v=20260529-25");
+  --marble-light-image: url("assets/pieces/marbles/light-0.png?v=20260529-25");
 }
 
 body[data-theme="castle"] {
